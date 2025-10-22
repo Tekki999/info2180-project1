@@ -1,11 +1,292 @@
 /* Add your CSS to this file */
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-size: 18px; /* base font size for the page */
+}
+
 body {
     margin: 0;
-    font-size: 16px;
+    font-size: 1rem; /* 1rem == 18px from html */
+    line-height: 1.6;
+    color: #222;
 }
 
 .container {
     margin: 0 auto;
     max-width: 960px;
     width: 100%;
+}
+
+/* Hero overview styles: image left, text right */
+.overview-hero {
+    padding: 48px 16px;
+    background: #E2E8F0;
+}
+
+.overview-hero .container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.overview-hero-image {
+    flex: 1 1 50%;
+}
+
+.overview-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.overview-hero-text {
+    flex: 1 1 50%;
+}
+
+.overview-hero-text h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.overview-hero-text p {
+    line-height: 1.5;
+    color: #333;
+}
+
+@media (max-width: 720px) {
+    .overview-hero .container {
+        flex-direction: column;
+    }
+
+    .overview-hero-image,
+    .overview-hero-text {
+        flex: none;
+        width: 100%;
+    }
+
+    .overview-hero {
+        padding: 24px 12px;
+    }
+}
+
+/* Header styles */
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1rem; /* 1rem == 18px */
+    font-weight: 600;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 1rem; /* 18px */
+    transition: color 160ms ease-in-out;
+}
+
+header nav a:hover,
+header nav a:focus-visible {
+    color: #5A67D8;
+}
+
+/* Learn About - cards grid */
+.learn-about .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.learn-about .card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.learn-about .card {
+    transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.learn-about .card:hover,
+.learn-about .card:focus-within {
+    box-shadow: 0 8px 20px rgba(34, 40, 49, 0.08);
+    transform: translateY(-6px);
+}
+
+.learn-about .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.learn-about .card-body {
+    padding: 16px;
+}
+
+.learn-about .card-body h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.125rem; /* ~20.25px */
+}
+
+.learn-about .card-body p {
+    margin: 0;
+    color: #444;
+}
+
+@media (max-width: 900px) {
+    .learn-about .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .learn-about .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* COVID-19 Testing Programme: description left, CTA right */
+.testing .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+.testing .testing-desciption {
+    flex: 1 1 auto;
+}
+
+.testing .cta {
+    flex: 0 0 auto;
+}
+
+.testing .btn {
+    background: #5A67D8;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+@media (max-width: 720px) {
+    .testing .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .testing .cta {
+        margin-top: 12px;
+        text-align: left;
+    }
+}
+
+/* Recent Stories: image left, content right */
+.stories article {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.stories article img {
+    width: 160px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex: 0 0 160px;
+}
+
+.stories .article-body {
+    flex: 1 1 auto;
+}
+
+.stories .article-body h3 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+}
+
+.stories .article-body p {
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+@media (max-width: 720px) {
+    .stories article {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stories article img {
+        width: 100%;
+        height: auto;
+        flex: none;
+        margin-bottom: 12px;
+    }
+}
+
+/* Newsletter: center content and inline form */
+.newsletter .container {
+    text-align: center;
+    padding: 32px 16px;
+}
+
+.newsletter .form-group {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    min-width: 260px;
+}
+
+.newsletter .btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+
+@media (max-width: 520px) {
+    .newsletter .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .newsletter input[type="email"] {
+        width: 100%;
+        min-width: 0;
+    }
 }
